@@ -225,5 +225,4 @@ shareObservable.subscribe()
 
 //5. Rx operators are as general as possible, but there will always be edge cases that will be hard to model. In those cases you can just create your own operator and possibly use one of the built-in operators as a reference.
 
-
 playgroundTimeLimit(seconds:10)
