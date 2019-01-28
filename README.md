@@ -1,7 +1,7 @@
 # RxSwift_Connect
 This repository explains RxSwift [Reactive Extension for Swift], what are its main components, capabilities and most importantly things to watch out for.
 
-The Playground availabel in the project can be used to play with the concepts and see them in practise
+## The Playground availabel in the project can be used to play with the concepts and see them in practise
 
 # When to use Rx
 
