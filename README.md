@@ -96,7 +96,7 @@ add somewhere in
 print("Resource count \(RxSwift.Resources.total)")
 })
     
-# Few things to remember while working
+# Few things to remember while working [Samples in playground]
 
 1. Avoid nesting subscribe calls at all cost.
 
