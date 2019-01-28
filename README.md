@@ -24,7 +24,7 @@ When does an Observable begin emitting its sequence of items? It depends on the 
 
 In some implementations of ReactiveX, there is also something called a “Connectable” Observable. Such an Observable does not begin emitting items until its Connect method is called, whether or not any observers have subscribed to it.
 
-//https://github.com/ReactiveX/RxSwift/blob/master/Documentation/HotAndColdObservables.md
+https://github.com/ReactiveX/RxSwift/blob/master/Documentation/HotAndColdObservables.md
 
 # Subject
 A Subject is a special form of an Observable Sequence, you can subscribe and dynamically add elements to it. There are currently 4 different kinds of Subjects in RxSwift
