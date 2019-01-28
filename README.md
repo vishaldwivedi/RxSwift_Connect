@@ -1,7 +1,7 @@
 # RxSwift_Connect
 This repository explains RxSwift [Reactive Extension for Swift], what are its main components, capabilities and most importantly things to watch out for
 
-When to use Rx
+# When to use Rx
 
 Use Rx for orchestrating asynchronous and event-based computations
 Code that deals with more than one event or asynchronous computation gets complicated quickly as it needs to build a state-machine to deal with ordering issues. Next to this, the code needs to deal with successful and failure termination of each separate computation. This leads to code that doesn’t follow normal control-flow, is hard to understand and hard to maintain.
