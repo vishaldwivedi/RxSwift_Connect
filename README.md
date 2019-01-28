@@ -19,7 +19,7 @@ Details can be found here https://rxmarbles.com/
 
 # Types of observables
 
-/*“Hot” and “Cold” Observables
+“Hot” and “Cold” Observables
 When does an Observable begin emitting its sequence of items? It depends on the Observable. A “hot” Observable may begin emitting items as soon as it is created, and so any observer who later subscribes to that Observable may start observing the sequence somewhere in the middle. A “cold” Observable, on the other hand, waits until an observer subscribes to it before it begins to emit items, and so such an observer is guaranteed to see the whole sequence from the beginning.
 
 In some implementations of ReactiveX, there is also something called a “Connectable” Observable. Such an Observable does not begin emitting items until its Connect method is called, whether or not any observers have subscribed to it.
@@ -29,17 +29,18 @@ In some implementations of ReactiveX, there is also something called a “Connec
 # Subject
 A Subject is a special form of an Observable Sequence, you can subscribe and dynamically add elements to it. There are currently 4 different kinds of Subjects in RxSwift
 
-PublishSubject: If you subscribe to it you will get all the events that will happen after you subscribed.
- BehaviourSubject: A behavior subject will give any subscriber the most recent element and everything that is emitted by that sequence after the subscription happened.
- ReplaySubject: If you want to replay more than the most recent element to new subscribers on the initial subscription you need to use a ReplaySubject. With a ReplaySubject, you can define how many recent items you want to emit to new subscribers.
- Variable: A Variable is just a BehaviourSubject wrapper that feels more natural to a non reactive programmers. It can be used like a normal Variable.
+* PublishSubject: If you subscribe to it you will get all the events that will happen after you subscribed.
+* BehaviourSubject: A behavior subject will give any subscriber the most recent element and everything that is emitted by that sequence after the subscription happened.
+* ReplaySubject: If you want to replay more than the most recent element to new subscribers on the initial subscription you need to use a ReplaySubject. With a ReplaySubject, you can define how many recent items you want to emit to new subscribers.
+* Variable: A Variable is just a BehaviourSubject wrapper that feels more natural to a non reactive programmers. It can be used like a normal Variable.
  
 # Relay
 RxCocoa provides two kinds of Relays: PublishRelay and BehaviorRelay. They behave exactly like their parallel Subjects, with two changes:
  
- Relays never complete.
- Relays never emit errors.
- In essence, Relays only emit .next events, and never terminate.
+* Relays never complete.
+* Relays never emit errors.
+ 
+In essence, Relays only emit .next events, and never terminate.
  
  # Some prominent operators
 
