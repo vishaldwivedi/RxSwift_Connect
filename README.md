@@ -91,10 +91,12 @@ In order to enable debug mode, a TRACE_RESOURCES flag must be added to the RxSwi
 In case you want to have some resource leak detection logic, the simplest method is just printing out RxSwift.Resources.total periodically to output.
 
 add somewhere in
+```swift
  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil)_ = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
 .subscribe(onNext: { _ in
 print("Resource count \(RxSwift.Resources.total)")
 })
+```
     
 # Few things to remember while working [Samples in playground]
 
