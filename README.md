@@ -7,9 +7,9 @@ This repository explains RxSwift [Reactive Extension for Swift], what are its ma
 
 Use Rx for orchestrating asynchronous and event-based computations
 Code that deals with more than one event or asynchronous computation gets complicated quickly as it needs to build a state-machine to deal with ordering issues. Next to this, the code needs to deal with successful and failure termination of each separate computation. This leads to code that doesn’t follow normal control-flow, is hard to understand and hard to maintain.
-    Rx makes these computations first-class citizens. This provides a model that allows for readable and composable APIs to deal with these asynchronous computations. */
+    Rx makes these computations first-class citizens. This provides a model that allows for readable and composable APIs to deal with these asynchronous computations. 
 
-Use Rx to deal with asynchronous sequences of data*
+Use Rx to deal with asynchronous sequences of data
 
 
 # Best practice for designing with Rx in Mind
@@ -22,7 +22,7 @@ Details can be found here https://rxmarbles.com/
 /*“Hot” and “Cold” Observables
 When does an Observable begin emitting its sequence of items? It depends on the Observable. A “hot” Observable may begin emitting items as soon as it is created, and so any observer who later subscribes to that Observable may start observing the sequence somewhere in the middle. A “cold” Observable, on the other hand, waits until an observer subscribes to it before it begins to emit items, and so such an observer is guaranteed to see the whole sequence from the beginning.
 
-In some implementations of ReactiveX, there is also something called a “Connectable” Observable. Such an Observable does not begin emitting items until its Connect method is called, whether or not any observers have subscribed to it.*/
+In some implementations of ReactiveX, there is also something called a “Connectable” Observable. Such an Observable does not begin emitting items until its Connect method is called, whether or not any observers have subscribed to it.
 
 //https://github.com/ReactiveX/RxSwift/blob/master/Documentation/HotAndColdObservables.md
 
@@ -90,13 +90,11 @@ In order to enable debug mode, a TRACE_RESOURCES flag must be added to the RxSwi
 
 In case you want to have some resource leak detection logic, the simplest method is just printing out RxSwift.Resources.total periodically to output.
 
-/* add somewhere in
- func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil)
- */
-_ = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+add somewhere in
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil)_ = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
 .subscribe(onNext: { _ in
 print("Resource count \(RxSwift.Resources.total)")
-})*/
+})
     
 # Few things to remember while working
 
