@@ -44,37 +44,37 @@ In essence, Relays only emit .next events, and never terminate.
  
  # Some prominent operators
 
-Creating Observables
+###### Creating Observables
 Create, Defer, Empty/Never/Throw, From, Interval, Just, Range, Repeat, Start, and Timer*/
  
-Transforming Observable Items
+###### Transforming Observable Items
 Buffer, FlatMap, GroupBy, Map, Scan, and Window
 
-Filtering Observables
+###### Filtering Observables
 Debounce, Distinct, ElementAt, Filter, First, IgnoreElements, Last, Sample, Skip, SkipLast, Take, and TakeLast
 
-Combining Observables
+###### Combining Observables
 And/Then/When, CombineLatest, Join, Merge, StartWith, Switch, and Zip
 
-Error Handling Operators
+###### Error Handling Operators
 Catch and Retry
 
-Utility Operators
+###### Utility Operators
 Delay, Do, Materialize/Dematerialize, ObserveOn, Serialize, Subscribe, SubscribeOn, TimeInterval, Timeout, Timestamp, and Using
 
-Conditional and Boolean Operators
+###### Conditional and Boolean Operators
 All, Amb, Contains, DefaultIfEmpty, SequenceEqual, SkipUntil, SkipWhile, TakeUntil, and TakeWhile
 
-Mathematical and Aggregate Operators
+###### Mathematical and Aggregate Operators
 Average, Concat, Count, Max, Min, Reduce, and Sum
 
-Converting Observables
+###### Converting Observables
 To
  
-Connectable Observable Operators
+###### Connectable Observable Operators
 Connect, Publish, RefCount, and Replay
  
-Backpressure Operators
+###### Backpressure Operators
 a variety of operators that enforce particular flow-control policies
 
 # You can create your custom operators also
