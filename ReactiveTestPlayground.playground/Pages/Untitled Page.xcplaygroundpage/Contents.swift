@@ -224,6 +224,11 @@ Observable<Int>.create { observer in
 
 //2. Observable should be lazy
 
+func calculate1() -> Int {
+    print("Lazy function invoked")
+    return 1
+}
+
 func rx_myFunction() -> Observable<Int> {
     let someCalculationResult: Int = calculate1()
     return .just(someCalculationResult)
