@@ -8,6 +8,11 @@ public func delay(_ delay: TimeInterval, closure: @escaping ()->()) {
     }
 }
 
+public func calculate1() -> Int {
+    print("Lazy function invoked")
+    return 1
+}
+
 #if NOT_IN_PLAYGROUND
 
 public func playgroundTimeLimit(seconds: TimeInterval) {
