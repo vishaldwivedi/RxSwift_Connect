@@ -200,6 +200,34 @@ Observable<Int>.create { observer in
 //1) ConcurrentDispatchQueueScheduler (Concurrent scheduler)
 //2) OperationQueueScheduler (Concurrent scheduler)
 
+//Traits Reactive Extensions
+
+// 1)Single: A Single is a variation of Observable that, instead of emitting a series of elements, is always guaranteed to emit either a single element or an error.
+
+//Emits exactly one element, or an error.
+//Doesn't share side effects.
+
+// 2) Completeable : A Completable is a variation of Observable that can only complete or emit an error. It is guaranteed to not emit any elements.
+
+//Emits zero elements.
+//Emits a completion event, or an error.
+//Doesn't share side effects.
+
+// 3)Maybe : A Maybe is a variation of Observable that is right in between a Single and a Completable. It can either emit a single element, complete without emitting an element, or emit an error.
+
+//Note: Any of these three events would terminate the Maybe, meaning - a Maybe that completed can't also emit an element, and a Maybe that emitted an element can't also send a Completion event.
+//
+//Emits either a completed event, a single element or an error.
+//Doesn't share side effects.
+
+// Driver: This is the most elaborate trait. Its intention is to provide an intuitive way to write reactive code in the UI layer, or for any case where you want to model a stream of data Driving your application.
+
+// Can't error out.
+// Observe occurs on main scheduler.
+// Shares side effects (share(replay: 1, scope: .whileConnected)).
+
+// Driver is an Observable with observeOn, catchErrorJustReturn and shareReplay operators already applied. If you want to expose a secure API in your view model it’s a good idea to always use a Driver!
+
 
 //Few things to remember while working
 
@@ -264,6 +292,35 @@ shareObservable.subscribe()
 
 //Evaluate share vs replay vs shareReplay for better options
 
-//5. Rx operators are as general as possible, but there will always be edge cases that will be hard to model. In those cases you can just create your own operator and possibly use one of the built-in operators as a reference.
+//5. It is good practice to make sure all sequences which UIViewController or UIView subscribes to should be a Driver
+
+//6. Rx operators are as general as possible, but there will always be edge cases that will be hard to model. In those cases you can just create your own operator and possibly use one of the built-in operators as a reference.
+
+//7.Take care of side effects [Minimum impact]
+
+var counter = 1
+
+let observable = Observable<Int>.create { (observer) -> Disposable in
+    // No side effects
+    observer.onNext(1)
+    return Disposables.create()
+}
+
+let observableWithSideEffect = Observable<Int>.create { (observer) -> Disposable in
+    // There's the side effect: it changes something, somewhere (the counter)
+    counter = counter + 1
+    observer.onNext(counter)
+    return Disposables.create()
+}
+
+observableWithSideEffect
+    .subscribe(onNext: { (counter) in
+        print(counter)
+    }).disposed(by: bag)
+
+observableWithSideEffect
+    .subscribe(onNext: { (counter) in
+        print(counter)
+    }).disposed(by: bag)
 
 playgroundTimeLimit(seconds:10)
