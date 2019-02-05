@@ -41,6 +41,33 @@ RxCocoa provides two kinds of Relays: PublishRelay and BehaviorRelay. They behav
 * Relays never emit errors.
  
 In essence, Relays only emit .next events, and never terminate.
+
+# Schedulers in RxSwift
+
+```swift
+Observable<Int>.create { observer in
+    observer.onNext(1)
+    sleep(1)
+    observer.onNext(2)
+    return Disposables.create()
+    }
+    .observeOn(MainScheduler.instance)
+    .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+    .subscribe(onNext: { el in
+        print(Thread.isMainThread)
+    })
+```
+so basically this happens in real time
+[main] subscribe() -> [background] create{ ... } -> [main] onNext { ... }
+
+Serial Schedulers
+1) CurrentThreadScheduler (Serial scheduler)
+2) MainScheduler (Serial scheduler)
+3) SerialDispatchQueueScheduler (Serial scheduler)
+
+Concurrent Schedulers
+1) ConcurrentDispatchQueueScheduler (Concurrent scheduler)
+2) OperationQueueScheduler (Concurrent scheduler)
  
  # Some prominent operators
 
