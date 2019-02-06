@@ -167,7 +167,7 @@ print("Resource count \(RxSwift.Resources.total)")
 
 4. Subscribing multiple times into 1 Observable
 
-5. Rx operators are as general as possible, but there will always be edge cases that will be hard to model. In those cases you can just create your own operator and possibly use one of the built-in operators as a reference.
+5. Rx operators are as general as possible, but there will always be edge cases that will be hard to model. In those cases you can just create your own operator and possibly use one of the built-in operators as a reference
 
 6. It is good practice to make sure all sequences which UIViewController or UIView subscribes to should be a Driver
 
