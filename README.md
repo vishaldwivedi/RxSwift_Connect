@@ -159,7 +159,7 @@ print("Resource count \(RxSwift.Resources.total)")
     
 # Few things to remember while working [Samples in playground]
 
-1. Avoid nesting subscribe calls at all cost.
+1. Avoid nesting subscribe calls at all cost
 
 2. Observable should be lazy
 
