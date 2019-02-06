@@ -71,6 +71,10 @@ Concurrent Schedulers
 
 # Traits Reactive Extensions
 
+Traits are simply a wrapper struct with a single read-only Observable sequence property.
+
+You can think of them as a kind of builder pattern implementation for Observable sequences. When a Trait is built, calling .asObservable() will transform it back into a vanilla observable sequence.
+
 1)Single: A Single is a variation of Observable that, instead of emitting a series of elements, is always guaranteed to emit either a single element or an error.
 
 Emits exactly one element, or an error.
